@@ -128,15 +128,10 @@ let existe =0;
 let rep = [];
 let nueva =[];
 if (!wordsArray.length) return null;
-for (let i=0; i<wordsArray.length;i++){
-  console.log("----ORIGINAL-------" + wordsArray[i] +"-----------"+i);
-} 
 for (let i=0;i<wordsArray.length;i++){
-  console.log("--ITERANDO-------ORIGINAL----EN "+ i +"----" + wordsArray[i]);
     if (i+1<wordsArray.length){
       existe= wordsArray.indexOf(wordsArray[i],i+1);
       if (existe > i){
-       console.log("--DUPLICADO-------ENCONTRADO----EN "+ existe +"----");
        rep.push(existe);
     }
   }
@@ -148,17 +143,13 @@ if(rep.length>0){
     }
   } 
 }
-for (let i=0;i<nueva.length;i++){
-  console.log("----NUEVA LISTA------" + nueva[i] +"-----------");
-} 
+ 
 if(rep.length>1){
   return nueva;
 }else{
   return wordsArray
 }
-
 }
-
 
 
 // Iteration #6: Find elements
