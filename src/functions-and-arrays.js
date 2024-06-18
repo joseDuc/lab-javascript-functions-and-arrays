@@ -125,31 +125,38 @@ const wordsUnique = [
 
 function uniquifyArray(wordsArray) {
 let existe =0;
-let unif =[];
 let rep = [];
+let nueva =[];
 if (!wordsArray.length) return null;
 for (let i=0; i<wordsArray.length;i++){
-  console.log("----ORIGINAL-------" + wordsArray[i] +"-----------");
+  console.log("----ORIGINAL-------" + wordsArray[i] +"-----------"+i);
 } 
-
 for (let i=0;i<wordsArray.length;i++){
-  console.log("--ITERANDO-------ORIGINAL----EN "+ i +"----" + wordsArr[i]);
-   existe= wordsArr.indexOf(wordsArr[i],0);
-   if (existe > i){
-    console.log("--DUPLICADO-------ENCONTRADO----EN "+ existe +"----");
-    rep.push(j);
-   }
-}
-if (rep.length>0){
-  console.log("---ELIMINANDO-DUPLICADOS---------------");
-  for (let i=0; i<rep.length;i++){
-    wordsArray.slice(i,1);
+  console.log("--ITERANDO-------ORIGINAL----EN "+ i +"----" + wordsArray[i]);
+    if (i+1<wordsArray.length){
+      existe= wordsArray.indexOf(wordsArray[i],i+1);
+      if (existe > i){
+       console.log("--DUPLICADO-------ENCONTRADO----EN "+ existe +"----");
+       rep.push(existe);
+    }
   }
 }
-for (let i=0;i<rep.length;i++){
-  console.log("----DUPLICADOS------" + wordsArr[i] +"-----------");
+if(rep.length>0){
+  for (let i=0;i<wordsArray.length;i++){
+    if(rep.indexOf(i)===-1){
+      nueva.push(wordsArray[i]);
+    }
+  } 
+}
+for (let i=0;i<nueva.length;i++){
+  console.log("----NUEVA LISTA------" + nueva[i] +"-----------");
 } 
-return wordsArr;
+if(rep.length>1){
+  return nueva;
+}else{
+  return wordsArray
+}
+
 }
 
 
