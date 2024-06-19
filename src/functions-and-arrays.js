@@ -224,8 +224,38 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
-
-function greatestProduct() {}
+const matrix1 = [
+  [8, 2, 22, 97, 38, 15],
+  [49, 49, 99, 40, 17, 81],
+  [81, 49, 31, 73, 55, 79],
+  [52, 70, 95, 23, 4, 60],
+  [22, 31, 16, 71, 51, 67],
+  [24, 47, 32, 60, 99, 3],
+]
+//greatestProduct(matrix);
+function greatestProduct(matriz) {
+  let mayorNum =0;
+  let partial =0;
+  if(!matriz.length) return null;
+  for (let i=0;i<matriz.length;i++){
+      for(let j=0;j<matriz[i].length;j++){
+        if(j+3<matriz[i].length  ){
+          
+          partial=matriz[i][j] * matriz[i][j+1] * matriz[i][j+2] * matriz[i][j+3];
+          //console.log(i+"-"+j+"*"+i+"-"+(j+1)+"*"+i+"-"+(j+2)+"*"+i+"-"+(j+3) + " PARCIAL =" + partial);
+          if (partial>mayorNum) mayorNum=partial;
+          
+          if(i+3<matriz.length  ){
+            partial=matriz[i][j]*matriz[i+1][j] *matriz[i+2][j]*matriz[i+3][j];
+            //console.log(i+"-"+j+"*"+(i+1)+"-"+(j)+"*"+(i+2)+"-"+(j)+"*"+(i+3)+"-"+(j)+ " PARCIAL =" + partial);
+            if (partial>mayorNum) mayorNum=partial;
+          }
+        }
+      }
+  }
+  //console.log(mayorNum);
+  return mayorNum;
+}
 
 
 
